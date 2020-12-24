@@ -1,3 +1,8 @@
+"""
+Main file of the game
+With Turtle module
+In Python
+"""
 import turtle
 
 #creation de la fenetre de jeu
@@ -38,8 +43,8 @@ ball.dy =  0.3
 #Score
 score_a = 0
 score_b = 0
-#Le Pen
 
+#Le Pen
 pen = turtle.Turtle()
 pen.speed(0)
 pen.color("white")
@@ -47,7 +52,6 @@ pen.penup()
 pen.hideturtle()
 pen.goto(0, 260)
 pen.write("Player A : 0  Player B : 0", align = "center", font = ("courier", 24, "normal"))
-
 
 #Fonction
 
@@ -70,6 +74,7 @@ def paddle_b_down():
     y = paddle_b.ycor()
     y -= 30
     paddle_b.sety(y)
+
 #clavier
 window.listen()
 window.onkeypress(paddle_a_up, "z")
@@ -78,7 +83,6 @@ window.onkeypress(paddle_b_up, "o")
 window.onkeypress(paddle_b_down, "m")
 
 # Main game loop
-
 while True:
     window.update()
 
