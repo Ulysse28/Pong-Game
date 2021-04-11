@@ -1,18 +1,21 @@
 """
-Main file of the game
+Main file of the Pong Game
 With Turtle module
 In Python
+
+By Ulysse Valdenaire
 """
 import turtle
 
-#creation de la fenetre de jeu
+#we create the window
 window = turtle.Screen()
 window.title("Game Pong")
 window.bgcolor("black")
 window.setup(width = 800, height = 600)
 window.tracer(0)
 
-#Paddle A
+
+#we create the Paddle A
 paddle_a = turtle.Turtle()
 paddle_a.speed(0)
 paddle_a.shape("square")
@@ -21,7 +24,7 @@ paddle_a.shapesize(stretch_wid = 5, stretch_len = 1)
 paddle_a.penup()
 paddle_a.goto(-350, 0)
 
-#Paddle B
+#we create the Paddle B
 paddle_b = turtle.Turtle()
 paddle_b.speed(0)
 paddle_b.shape("square")
@@ -30,7 +33,7 @@ paddle_b.shapesize(stretch_wid = 5, stretch_len = 1)
 paddle_b.penup()
 paddle_b.goto(350, 0)
 
-#Ball
+#we create the Ball
 ball = turtle.Turtle()
 ball.speed(0)
 ball.shape("square")
@@ -44,7 +47,7 @@ ball.dy =  0.3
 score_a = 0
 score_b = 0
 
-#Le Pen
+#we create the pen
 pen = turtle.Turtle()
 pen.speed(0)
 pen.color("white")
@@ -53,8 +56,7 @@ pen.hideturtle()
 pen.goto(0, 260)
 pen.write("Player A : 0  Player B : 0", align = "center", font = ("courier", 24, "normal"))
 
-#Fonction
-
+#Moving functions
 def paddle_a_up():
     y = paddle_a.ycor()
     y += 30
@@ -75,12 +77,12 @@ def paddle_b_down():
     y -= 30
     paddle_b.sety(y)
 
-#clavier
+
 window.listen()
 window.onkeypress(paddle_a_up, "z")
 window.onkeypress(paddle_a_down, "s")
 window.onkeypress(paddle_b_up, "o")
-window.onkeypress(paddle_b_down, "m")
+window.onkeypress(paddle_b_down, "l")
 
 # Main game loop
 while True:
