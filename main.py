@@ -2,7 +2,6 @@
 Main file of the Pong Game
 With Turtle module
 In Python
-
 By Ulysse Valdenaire
 """
 import turtle
@@ -13,7 +12,6 @@ window.title("Game Pong")
 window.bgcolor("black")
 window.setup(width = 800, height = 600)
 window.tracer(0)
-
 
 #we create the Paddle A
 paddle_a = turtle.Turtle()
@@ -77,7 +75,6 @@ def paddle_b_down():
     y -= 30
     paddle_b.sety(y)
 
-
 window.listen()
 window.onkeypress(paddle_a_up, "z")
 window.onkeypress(paddle_a_down, "s")
@@ -87,21 +84,16 @@ window.onkeypress(paddle_b_down, "l")
 # Main game loop
 while True:
     window.update()
-
     #move the ball
     ball.setx(ball.xcor() + ball.dx)
     ball.sety(ball.ycor() + ball.dy)
-
     #border checking
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy = ball.dy * -1
-
-
     if ball.ycor() < -290:
         ball.sety(-290)
         ball.dy = ball.dy * -1
-
     if ball.xcor() > 390:
         ball.setx(390)
         ball.goto(0, 0)
@@ -109,8 +101,6 @@ while True:
         score_a = score_a + 1
         pen.clear()
         pen.write("Player A : {}  Player B : {}".format(score_a, score_b), align="center", font=("courier", 24, "normal"))
-
-
     if ball.xcor() < -390:
         ball.setx(-390)
         ball.goto(0, 0)
@@ -119,10 +109,7 @@ while True:
         pen.clear()
         pen.write("Player A : {}  Player B : {}".format(score_a, score_b), align="center",
                   font=("courier", 24, "normal"))
-
-
     if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_b.ycor() + 50 and ball.ycor() > paddle_b.ycor() -50 ):
         ball.dx *= -1
-
     if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < paddle_a.ycor() + 50 and ball.ycor() > paddle_a.ycor() - 50):
         ball.dx *= -1
